@@ -1,0 +1,12 @@
+<%= link_to "Create New Listing", new_listing_path %>
+<%= current_user.provider %>
+<ul>
+  <% for listing in @listings %>
+  <li><%= listing.name %> | <%= listing.id %> | <%= listing.user.provider %> | <%= listing.user.name %> |
+  
+  <% if can? :destroy, listing %>
+  <%= link_to "destroy", listing, :method => :delete %>
+  <% end %></li>
+
+  <% end %>
+</ul>

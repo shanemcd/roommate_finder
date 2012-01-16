@@ -1,0 +1,11 @@
+<%= link_to "Log out", logout_path, :method => :delete %>
+
+  <div id="container">
+  <ul>
+ 
+    <% @listings.each do |l| %>
+     <li><%= l.name %></li>
+    <% end %>
+
+  </ul>
+  </div>

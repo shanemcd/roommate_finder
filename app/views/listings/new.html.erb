@@ -1,0 +1,11 @@
+<h1>Create a listing</h1>
+
+<%= form_for(@listing) do |f| %>
+    <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+    </div>
+    <div class="actions">
+        <%= f.submit "Create Listing" %>
+    </div>
+<% end %>
