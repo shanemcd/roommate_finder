@@ -1,0 +1,10 @@
+<%= form_for(@photo) do |p| %>
+<%= p.hidden_field :listing_id %>
+    <div class="field">
+        <%= p.label :image %><br />
+        <%= p.text_field :image %>
+    </div>
+    <div class="actions">
+        <%= p.submit "Add photo" %>
+    </div>
+<% end %>

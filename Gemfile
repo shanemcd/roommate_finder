@@ -10,7 +10,8 @@ gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-identity'
-gem "cancan"
+gem 'cancan'
+gem 'paperclip'
 
 
 # Gems used only for assets and not required

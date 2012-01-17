@@ -4,9 +4,8 @@ class Ability
   def initialize(current_user)
     can :read, Listing
     can :create, Listing
-    can :destroy, Listing do |listing|
-      listing.try(:user) == current_user
-    end
+    can :manage, Listing, :user_id => current_user.id
+    can :manage, User, :user_id => current_user.id
   end
 
 end

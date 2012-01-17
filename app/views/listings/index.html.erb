@@ -2,11 +2,16 @@
 <%= current_user.provider %>
 <ul>
   <% for listing in @listings %>
-  <li><%= listing.name %> | <%= listing.id %> | <%= listing.user.provider %> | <%= listing.user.name %> |
+  <li><%= link_to listing.name, listing %> | <%= listing.id %> | <%= listing.user.name %> | <%= listing.user.provider %>
   
   <% if can? :destroy, listing %>
   <%= link_to "destroy", listing, :method => :delete %>
-  <% end %></li>
+  <% end %>
+  <% if can? :edit, listing %>
+  <%= link_to "edit", edit_listing_path(listing) %>
+  <% end %>
+
+  </li>
 
   <% end %>
 </ul>

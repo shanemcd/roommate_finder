@@ -1,1 +1,8 @@
-<%= @user.name %>
+user name <%= @listing.user.name %><br />
+
+listing name <%= @listing.name %><br />
+<ul>
+<% for photo in @listing.photos %>
+<li><%= photo.image %> | <%= link_to "Delete", photo, :method => :delete %></li>
+<% end %>
+</ul>

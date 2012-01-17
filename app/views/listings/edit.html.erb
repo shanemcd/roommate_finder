@@ -1,0 +1,11 @@
+<%= form_for @listing do |l| %>
+  <p>
+    <%= l.label :name %><br />
+    <%= l.text_field :name %>
+  </p>
+  <p><%= l.submit "Submit" %></p>
+<% end %>
+
+<%= @photo %>
+
+<%= render :partial => 'photos/form' %>

@@ -25,6 +25,17 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @listing = Listing.find(params[:id])
+    @photos = @listing.photos.all
+  end
+
+  def edit
+    @listing = Listing.find(params[:id])
+    @photo = Photo.new(:listing => @listing)
+  end
+
+  def update
+    @listing.update_attributes(params[:listing])
     redirect_to listings_path
   end
 

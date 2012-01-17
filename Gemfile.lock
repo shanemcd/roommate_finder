@@ -41,6 +41,7 @@ GEM
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
     cancan (1.6.7)
+    cocaine (0.2.1)
     coffee-rails (3.2.1)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0.beta)
@@ -86,6 +87,11 @@ GEM
       omniauth (~> 1.0)
     omniauth-twitter (0.0.7)
       omniauth-oauth (~> 1.0)
+    paperclip (2.5.0)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+      mime-types
     polyglot (0.3.3)
     rack (1.4.0)
     rack-cache (1.1)
@@ -144,6 +150,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-identity
   omniauth-twitter
+  paperclip
   rails (= 3.2.0.rc2)
   sass-rails (~> 3.2.3)
   sqlite3

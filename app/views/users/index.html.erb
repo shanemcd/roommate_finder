@@ -1,11 +1,12 @@
 <% if current_user %>
-    <%= current_user %><%= link_to "Log out", logout_path, :method => :delete %>
+    <%= current_user.name %><%= link_to "Log out", logout_path, :method => :delete %>
     <% else %>
     <%= link_to "Log in", new_user_session_path %>
 <% end %>
 
 <% @users.each do |f| %>
 <ul>
-    <li><%= f %> | <%= f.id %> | <%= f.listings(:id) %></li>
+    <li><%= link_to f.name, f %> | <%= f.id %></li>
 </ul>
+
 <% end %>

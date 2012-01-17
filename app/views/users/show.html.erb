@@ -1,10 +1,10 @@
 <%= link_to "Log out", logout_path, :method => :delete %>
-
+<%= image_tag "http://graph.facebook.com/"+@user.uid+"/picture?type=large" %>
   <div id="container">
   <ul>
  
-    <% @listings.each do |l| %>
-     <li><%= l.name %></li>
+    <% @listings.each do |listing| %>
+     <li><%= link_to listing.name, listing %></li>
     <% end %>
 
   </ul>

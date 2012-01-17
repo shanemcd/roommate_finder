@@ -1,4 +1,8 @@
 RelocateMe::Application.routes.draw do
+  get "photos/new"
+
+  get "photos/show"
+
   root to: "sessions#new"
   match "/auth/:provider/callback", to: "sessions#create"
   match "/auth/failure", to: "sessions#failure"
@@ -6,6 +10,7 @@ RelocateMe::Application.routes.draw do
   resources :users
   resources :identities
   resources :listings
+  resources :photos
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
