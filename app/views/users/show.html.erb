@@ -1,11 +1,13 @@
-<%= link_to "Log out", logout_path, :method => :delete %>
-<%= image_tag "http://graph.facebook.com/"+@user.uid+"/picture?type=large" %>
+<% if @user.provider == "facebook" %>
+  <%= image_tag "http://graph.facebook.com/"+@user.uid+"/picture?type=large" %>
+  <% else %>
+  <%= image_tag "https://api.twitter.com/1/users/profile_image?user_id=#{@user.uid}&size=original" %>
+<% end %>
+
   <div id="container">
   <ul>
- 
     <% @listings.each do |listing| %>
      <li><%= link_to listing.name, listing %></li>
     <% end %>
-
   </ul>
   </div>

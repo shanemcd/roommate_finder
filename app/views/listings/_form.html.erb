@@ -1,0 +1,23 @@
+<%= form_for @listing, :html => { :multipart => true } do |l| %>
+  <p>
+    <%= l.label :name %><br />
+    <%= l.text_field :name %>
+  </p>
+
+  <%= l.label :address %><br />
+    <%= l.text_field :address %>
+
+  <%= l.fields_for :listing_images do |builder| %>
+
+
+
+  <% if builder.object.new_record? %>
+  <p>
+  <%= builder.label :photo, "Image File" %>
+  <%= builder.file_field :photo %>
+  </p>
+
+  <% end %>
+  <% end %>
+  <p><%= l.submit "Submit" %></p>
+<% end %>

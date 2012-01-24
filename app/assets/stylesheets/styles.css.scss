@@ -1,0 +1,30 @@
+.clearfix{zoom:1;}.clearfix:before,.clearfix:after{content:"\0020";display:block;height:0;overflow:hidden;}
+.clearfix:after{clear:both;}
+
+body{ 
+      background: url('/assets/noise.png'); 
+      margin: 0;
+      color: #333;
+      font: 13px helvetica,arial,freesans,clean,sans-serif;
+}
+
+a { color: #333; }
+
+.wrapper{ max-width: 940px; margin: 0 auto;}
+
+#user{ float: right;}
+
+header{ background-color: #ffffff;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), to(rgb(214, 214, 214)));
+        background-image: -webkit-linear-gradient(top, rgb(255, 255, 255), rgb(214, 214, 214));
+        background-image: -moz-linear-gradient(top, rgb(255, 255, 255), rgb(214, 214, 214));
+        background-image: -o-linear-gradient(top, rgb(255, 255, 255), rgb(214, 214, 214));
+        background-image: -ms-linear-gradient(top, rgb(255, 255, 255), rgb(214, 214, 214));
+        background-image: linear-gradient(top, rgb(255, 255, 255), rgb(214, 214, 214));
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ffffff', EndColorStr='#d6d6d6');
+        border-bottom: 1px solid #A3A3A3;
+}
+
+nav { font-weight: bold; float: right; margin: 20px 0 20px 0;}
+nav ul li{ margin: 0; float: left; list-style: none; padding: 0 15px 0 0;}
+nav ul{ margin: 0; padding: 0;}

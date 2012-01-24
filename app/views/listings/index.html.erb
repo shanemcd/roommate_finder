@@ -1,5 +1,11 @@
+<%= form_tag listings_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Near", :name => nil %>
+  </p>
+<% end %>
+
 <%= link_to "Create New Listing", new_listing_path %>
-<%= current_user.provider %>
 <ul>
   <% for listing in @listings %>
   <li><%= link_to listing.name, listing %> | <%= listing.id %> | <%= listing.user.name %> | <%= listing.user.provider %>

@@ -1,8 +1,20 @@
 user name <%= @listing.user.name %><br />
 
 listing name <%= @listing.name %><br />
+
+<div id="fotorama">
+      <% unless @listing.listing_images.empty? %>
+  <% for image in @listing.listing_images %>
+    <a href="<%= image.photo.url %>"><%= image_tag image.photo.url(:small) %></a>
+  <% end %>
+  <% end %>
+    </div>
+
 <ul>
-<% for photo in @listing.photos %>
-<li><%= photo.image %> | <%= link_to "Delete", photo, :method => :delete %></li>
-<% end %>
+<li><%= @listing.city %></li>
 </ul>
+    <script type="text/javascript">
+      $(function() {
+        $('#fotorama').fotorama();
+      });
+    </script>

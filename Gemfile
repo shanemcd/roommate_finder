@@ -12,6 +12,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-identity'
 gem 'cancan'
 gem 'paperclip'
+gem 'jquery-rails'
+gem "geocoder"
 
 
 # Gems used only for assets and not required
@@ -21,6 +23,16 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.0'
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :development do
+  gem "rspec-rails", "~> 2.7"
+  gem "annotate"
+end
+
+group :test do
+gem "rspec"
+gem "factory_girl_rails"
 end
 
 gem 'jquery-rails'

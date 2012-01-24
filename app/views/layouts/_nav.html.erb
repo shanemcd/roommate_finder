@@ -1,0 +1,9 @@
+<nav class="clearfix">
+      <ul>
+        <li><%= link_to "Home", root_url %></li>
+        <li><%= link_to "Listings", listings_path %></li>
+        <li>About</li>
+        <li>Help</li>
+        <li><% if current_user %><%= link_to "Log out", logout_path %><% else %><%= link_to "Log in", new_session_path %><% end %><li>
+       </ul>
+    </nav>

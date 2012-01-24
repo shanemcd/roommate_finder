@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RelocateMe</title>
+  <%= stylesheet_link_tag "styles", :media => "all" %>
+  <%= stylesheet_link_tag "fotorama" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "fotorama" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header class="clearfix">
+  <div class="wrapper">
+    <%= render :partial => "layouts/nav" %>
+  </div>
+  </header>
+  <div class="wrapper">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <%= yield %>
+  </div>
+</body>
+</html>
