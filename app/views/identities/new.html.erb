@@ -1,7 +1,7 @@
 <%= form_tag "/auth/identity/register" do %>
   <% if @identity && @identity.errors.any? %>
     <div class="error_messages">
-      <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
+      <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being created:</h2>
       <ul>
       <% @identity.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

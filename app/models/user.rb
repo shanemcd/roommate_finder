@@ -1,6 +1,14 @@
 class User < ActiveRecord::Base
   has_many :listings
 
+  validates :name, :presence => true,
+            :length => { :maximum => 50 }
+
+  validates :email, 
+                    
+                    :uniqueness => { :case_sensitive => false }
+
+
   def self.from_omniauth(auth)
     find_by_provider_and_uid(auth["provider"], auth["uid"]) || create_with_omniauth(auth)
   end

@@ -2,19 +2,22 @@ user name <%= @listing.user.name %><br />
 
 listing name <%= @listing.name %><br />
 
-<div id="fotorama">
+<div id="fotorama" style="float: left;">
       <% unless @listing.listing_images.empty? %>
   <% for image in @listing.listing_images %>
-    <a href="<%= image.photo.url %>"><%= image_tag image.photo.url(:small) %></a>
+    <a href="<%= image.photo.url(:slide) %>"><%= image_tag image.photo.url(:small) %></a>
   <% end %>
   <% end %>
     </div>
 
-<ul>
-<li><%= @listing.city %></li>
-</ul>
+<div style="float: left;">
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x300&sensor=false&zoom=16&markers=#{@listing.latitude}%2C#{@listing.longitude}" %>
+</div>
     <script type="text/javascript">
       $(function() {
-        $('#fotorama').fotorama();
+        $('#fotorama').fotorama({
+          width: 550,
+          height: 325
+        });
       });
     </script>

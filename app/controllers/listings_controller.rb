@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
 
   def index
     if params[:search].present?
-      @listings = Listing.near(params[:search], 50, :order => :distance)
+      @listings = Listing.near(params[:search], 25, :order => :distance)
     else
       @listings = Listing.all
   end
@@ -17,6 +17,7 @@ class ListingsController < ApplicationController
       redirect_to root_url
     end
     @listing = Listing.new
+    3.times { @listing.listing_images.build }
     authorize! :read, @listing
   end
 
