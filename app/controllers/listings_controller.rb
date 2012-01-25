@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
 
   def index
     if params[:search].present?
-      @listings = Listing.near(params[:search], 25, :order => :distance)
+      @listings = Listing.near(params[:search], params[:distance] , {:order => :distance, :units => params[:unit]})
     else
       @listings = Listing.all
   end
