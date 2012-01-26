@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  layout 'index'
+  layout 'static'
 
   def index
 

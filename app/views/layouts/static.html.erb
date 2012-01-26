@@ -2,11 +2,11 @@
 <html>
 <head>
   <title>RelocateMe</title>
-  <%= stylesheet_link_tag "styles", :media => "all" %>
-  <%= stylesheet_link_tag "pages", :media => "all" %>
-  <%= stylesheet_link_tag "nivo/nivo-slider", :media => "all" %>
-  <%= stylesheet_link_tag "nivo/themes/default/default", :media => "all" %>
-  <%= javascript_include_tag "/assets/nivo-slider/jquery.nivo.slider.pack.js" %>
+  <%= javascript_include_tag :application %>
+  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+  <%= stylesheet_link_tag "nivo/nivo-slider" %>
+  <%= stylesheet_link_tag    "nivo/themes/default/default" %>
+  <%= javascript_include_tag "nivo-slider/jquery.nivo.slider.pack.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body> 

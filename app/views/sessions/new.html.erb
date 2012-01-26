@@ -28,16 +28,10 @@
 
   <div class="auth_providers">
     <a href="/auth/twitter" class="auth_provider">
-      <%= image_tag "twitter_64.png", size: "64x64", alt: "Twitter" %>
-      Twitter
+      <%= image_tag "twitter_64.png", alt: "Twitter" %>
     </a>
     <a href="/auth/facebook" class="auth_provider">
-      <%= image_tag "facebook_64.png", size: "64x64", alt: "Facebook" %>
-      Facebook
-    </a>
-    <a href="/auth/google_apps" class="auth_provider">
-      <%= image_tag "google_apps_64.png", size: "64x64", alt: "Google" %>
-      Google
+      <%= image_tag "facebook_64.png", alt: "Facebook" %>
     </a>
 
     <p>
@@ -47,11 +41,11 @@
 
 <%= form_tag "/auth/identity/callback" do %>
   <div class="field">
-    <%= label_tag :auth_key, "Email" %><br>
+    <%= label_tag :auth_key, "Email" %>
     <%= text_field_tag :auth_key %>
   </div>
   <div class="field">
-    <%= label_tag :password %><br>
+    <%= label_tag :password %>
     <%= password_field_tag :password %>
   </div>
   <div class="actions"><%= submit_tag "Login" %></div>

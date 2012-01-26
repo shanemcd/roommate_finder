@@ -2,7 +2,5 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-li { background-color: white; list-style: none; border-top: 1px solid #A3A3A3; padding: 20px}
-li:first-child {border-top: 0; border-radius: 5px}
+select#distance { width: 50px; }
+select#unit { width: 70px; }
