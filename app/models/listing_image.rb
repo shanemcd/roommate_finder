@@ -3,7 +3,7 @@ class ListingImage < ActiveRecord::Base
 
   has_attached_file :photo,
     :styles => {
-      :thumb => "100x100#",
+      :thumb => "50x50#",
       :small => "300x300>",
       :large => "600x600>",
       :slide => "550x325#"

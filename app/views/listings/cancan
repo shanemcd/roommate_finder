@@ -1,0 +1,6 @@
+<% if can? :destroy, listing %>
+  <%= link_to "destroy", listing, :method => :delete %>
+  <% end %>
+  <% if can? :edit, listing %>
+  <%= link_to "edit", edit_listing_path(listing) %>
+  <% end %>

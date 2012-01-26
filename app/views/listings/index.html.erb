@@ -10,15 +10,8 @@
 <%= link_to "Create New Listing", new_listing_path %>
 <ul>
   <% for listing in @listings %>
-  <li><%= link_to listing.name, listing %> | <%= listing.id %> | <%= listing.user.name %> | <%= listing.user.provider %>
-  
-  <% if can? :destroy, listing %>
-  <%= link_to "destroy", listing, :method => :delete %>
-  <% end %>
-  <% if can? :edit, listing %>
-  <%= link_to "edit", edit_listing_path(listing) %>
-  <% end %>
-
+  <li>
+   <%= image_tag listing.listing_images.first.photo.url(:thumb) %> | <%= link_to listing.name, listing %> | <%= listing.id %> |
   </li>
 
   <% end %>
