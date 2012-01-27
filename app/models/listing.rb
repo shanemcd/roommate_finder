@@ -1,7 +1,13 @@
 class Listing < ActiveRecord::Base
-  attr_accessible :photo, :user_id, :name, :address, :latitude, :longitude, :listing_images_attributes
+  attr_accessible :photo, :user_id, :name, :address, :latitude, :longitude, :state, :listing_images_attributes
 
   belongs_to :user
+
+  validates :name, :presence => true,
+            :length => { :maximum => 50 }
+
+  validates :address, :presence => true,
+            :length => { :maximum => 100 }
   
   has_many :listing_images, :dependent => :destroy
   accepts_nested_attributes_for :listing_images

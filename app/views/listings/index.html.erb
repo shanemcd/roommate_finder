@@ -13,7 +13,7 @@
   <li id="listing" class="clearfix">
    <%= image_tag listing.listing_images.first.photo.url(:thumb) %>  
    <div id="listingtitle"><h3><%= link_to listing.name, listing %></h3>
-   <p><%= listing.city %><p>
+   <p><%= "#{listing.city}, #{listing.state}" %><p>
       <% if can? :destroy, listing %>
         <%= link_to "destroy", listing, :method => :delete %>
       <% end %>
