@@ -1,10 +1,10 @@
 <%= form_for @listing, :html => { :multipart => true } do |l| %>
   <p>
-    <%= l.label :name %><br />
+    <%= l.label :name %>
     <%= l.text_field :name %>
   </p>
 
-  <%= l.label :address %><br />
+  <%= l.label :address %>
     <%= l.text_field :address %>
 
   <%= l.fields_for :listing_images do |builder| %>

@@ -56,11 +56,11 @@
 
 .fotorama__thumb_disabled { display: none; cursor: default; }
 
-.fotorama__thumbs_previews { overflow: hidden; background-color: #323130; }
+.fotorama__thumbs_previews { overflow: hidden; background-color: rgba(0,0,0,.1); }
 .fotorama__thumbs_previews .fotorama__thumbs-shaft { position: absolute; top: 0; left: 0; }
 .fotorama__thumbs_previews .fotorama__thumb { float: left; display: inline; width: auto; }
 .fotorama__thumbs_previews .fotorama__thumb__img { width: auto; border: none; margin: 0; padding: 0; }
-.fotorama__thumbs_previews .fotorama__thumb-border { border: solid; border-color: #00d1ff #00afea #008ed6; background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.25)), color-stop(100%, rgba(55, 55, 55, 0.05))); background: -webkit-linear-gradient(rgba(255, 255, 255, 0.25), rgba(55, 55, 55, 0.05)); background: -moz-linear-gradient(rgba(255, 255, 255, 0.25), rgba(55, 55, 55, 0.05)); background: -o-linear-gradient(rgba(255, 255, 255, 0.25), rgba(55, 55, 55, 0.05)); background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(55, 55, 55, 0.05)); background-color: rgba(175, 175, 175, 0.15); position: absolute; z-index: 10; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; -o-box-sizing: content-box; -ms-box-sizing: content-box; box-sizing: content-box; }
+.fotorama__thumbs_previews .fotorama__thumb-border { border: 1px solid; border-color: #000; background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.25)), color-stop(100%, rgba(55, 55, 55, 0.05))); background: -webkit-linear-gradient(rgba(255, 255, 255, 0.25), rgba(55, 55, 55, 0.05)); background: -moz-linear-gradient(rgba(255, 255, 255, 0.25), rgba(55, 55, 55, 0.05)); background: -o-linear-gradient(rgba(255, 255, 255, 0.25), rgba(55, 55, 55, 0.05)); background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(55, 55, 55, 0.05)); background-color: rgba(175, 175, 175, 0.15); position: absolute; z-index: 10; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; -o-box-sizing: content-box; -ms-box-sizing: content-box; box-sizing: content-box; }
 
 .fotorama_horizontal .fotorama__thumbs_previews .fotorama__thumb { margin-left: 0 !important; }
 

@@ -1,16 +1,25 @@
+<div id="splash">
   <div id="intro">
     <h2>Want to move somewhere new?<br />
     You've come to the right place.
     </h2>
     <div id="search">
-      <p>Search Box</p>
+      <%= form_tag listings_path, :method => :get do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search Cities", :name => nil %>
+    </p>
+      <% end %>
     </div>
   </div>
+
+
   <div class="slider-wrapper theme-default">
     <div id="slider" class="nivoSlider">
-        <img src="http://placehold.it/525x300" alt="" />
-        <img src="http://placehold.it/525x300" alt="" title="This is an example of a caption" />
-        <img src="http://placehold.it/525x300" alt="" />
-        <img src="http://placehold.it/525x300" alt="" />
+      <img src="http://placehold.it/525x300" alt="" title="Caption!" />
+      <img src="http://placehold.it/525x300" alt="" title="Caption!" />
+      <img src="http://placehold.it/525x300" alt="" title="Caption!" />
+      <img src="http://placehold.it/525x300" alt="" title="Caption!" />
     </div>
   </div>
+</div>

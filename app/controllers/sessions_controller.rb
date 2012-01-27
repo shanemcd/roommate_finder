@@ -7,12 +7,12 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
     current_user = session
-    redirect_to root_url, notice: "Signed in!"
+    redirect_to user
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: "Signed out!"
+    redirect_to root_url, alert: "Signed out!"
   end
 
   def failure

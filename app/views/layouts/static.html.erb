@@ -2,19 +2,21 @@
 <html>
 <head>
   <title>RelocateMe</title>
-  <%= javascript_include_tag :application %>
-  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+  
+  <%= stylesheet_link_tag "bootstrap", :media => "all" %>
   <%= stylesheet_link_tag "nivo/nivo-slider" %>
-  <%= stylesheet_link_tag    "nivo/themes/default/default" %>
+  <%= stylesheet_link_tag "nivo/themes/default/default" %>
+  <%= stylesheet_link_tag "styles" %>
+  <%= javascript_include_tag :application %>
   <%= javascript_include_tag "nivo-slider/jquery.nivo.slider.pack.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body> 
-  <%= render :partial => "layouts/nav" %>
-   <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
   <div class="container">
+    <%= render :partial => "layouts/nav" %>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
     <div class="content">
        <%= yield %>
     </div>

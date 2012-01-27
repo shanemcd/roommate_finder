@@ -1,3 +1,5 @@
+<%= link_to "Create New Listing", new_listing_path %>
+
 <%= form_tag listings_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
@@ -6,12 +8,16 @@
     <%= submit_tag "Search Near", :name => nil %>
   </p>
 <% end %>
-
-<%= link_to "Create New Listing", new_listing_path %>
-<ul>
+<ul id="listings_list">
   <% for listing in @listings %>
-  <li>
-   <%= image_tag listing.listing_images.first.photo.url(:thumb) %> | <%= link_to listing.name, listing %> | <%= listing.id %> |
+  <li id="listing" class="clearfix">
+   <%= image_tag listing.listing_images.first.photo.url(:thumb) %>  
+   <div id="listingtitle"><h3><%= link_to listing.name, listing %></h3>
+   <p><%= listing.city %><p>
+      <% if can? :destroy, listing %>
+        <%= link_to "destroy", listing, :method => :delete %>
+      <% end %>
+   </div>
   </li>
 
   <% end %>

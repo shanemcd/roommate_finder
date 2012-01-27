@@ -4,9 +4,7 @@ class User < ActiveRecord::Base
   validates :name, :presence => true,
             :length => { :maximum => 50 }
 
-  validates :email, 
-                    
-                    :uniqueness => { :case_sensitive => false }
+  validates_uniqueness_of :email, :case_sensitive => false
 
 
   def self.from_omniauth(auth)

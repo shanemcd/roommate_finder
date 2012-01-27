@@ -2,5 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.clearfix{zoom:1;}.clearfix:before,.clearfix:after{content:"\0020";display:block;height:0;overflow:hidden;}
+.clearfix:after{clear:both;}
+
 select#distance { width: 50px; }
 select#unit { width: 70px; }
+
+ul#listings_list { width: 500px; background-color: rgba(0,0,0,.04); list-style: none; border-radius: 5px; margin: 0; }
+
+ul#listings_list li { padding: 15px; border-top: 1px solid rgba(0,0,0,.3);}
+ul#listings_list li:first-child { border-top: none;}
+ul#listings_list a { margin: 0; padding: 0;}
+
+#listing img { float: left; margin-right: 30px; }
+#listingtitle{ float: left; padding-top: 17px;}
+#listingtitle p{ margin-top: -5px;}
+
+#listingtabs { width: 450px; margin-top: 20px; }

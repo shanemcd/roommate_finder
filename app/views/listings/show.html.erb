@@ -1,27 +1,55 @@
-user name <%= @listing.user.name %><br />
 
-listing name <%= @listing.name %><br />
+<h2><%= @listing.name %></h2>
+<h3><%= "#{@listing.city}, #{@listing.state}" %></h3>
 
-<div id="fotorama" style="float: left;">
-      <% unless @listing.listing_images.empty? %>
-  <% for image in @listing.listing_images %>
-    <a href="<%= image.photo.url(:slide) %>"><%= image_tag image.photo.url(:small) %></a>
-  <% end %>
-  <% end %>
+<div id="tabcontain" class="clearfix">
+  <div id="listingtabs">
+    <ul id="tab" class="nav tabs">
+      <li class="active"><a href="#photos" data-toggle="tab">Photos</a></li>
+      <li><a href="#map" data-toggle="tab">Map</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade in active" id="photos">
+        <div id="fotorama" style="float: left;">
+          <% unless @listing.listing_images.empty? %>
+          <% for image in @listing.listing_images %>
+            <a href="<%= image.photo.url(:slide) %>"><%= image_tag image.photo.url(:small) %></a>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="map">
+        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x275&sensor=false&zoom=16&markers=#{@listing.latitude}%2C#{@listing.longitude}" %>
+      </div>
     </div>
-
-    <% if can? :destroy, @listing %>
-    <%= link_to "Destroy", @listing, :method => :delete %> |
-  <% end %>
-
-<div style="float: left;">
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x300&sensor=false&zoom=16&markers=#{@listing.latitude}%2C#{@listing.longitude}" %>
+  </div>
 </div>
-    <script type="text/javascript">
-      $(function() {
-        $('#fotorama').fotorama({
-          width: 550,
-          height: 325
-        });
-      });
-    </script>
+
+<div id="userinfo">
+  <h4>About the owner</h4>
+  <% if @listing.user.provider == "facebook" %>
+  <%= image_tag "http://graph.facebook.com/"+@listing.user.uid+"/picture?type=large" %>
+  <% else %>
+  <%= image_tag "https://api.twitter.com/1/users/profile_image?user_id=#{@listing.user.uid}&size=original" %>
+  <% end %><br />
+  <%= @listing.user.name %>
+</div>
+
+<section id="listinginfo" class="clearfix">
+  <dl>
+    <dt>Property Type</dt>
+      <dd>Apartment</dd>
+    <dt>Bedrooms:</dt>
+      <dd>3</dd>
+  </dl>
+</section>
+
+<script type="text/javascript">
+  $(function() {
+    $('#fotorama').fotorama({
+      width: 450,
+      height: 275
+    });
+    $('#tab a:first').tab('show')
+  });
+</script>

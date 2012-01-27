@@ -11,17 +11,15 @@
   <%= csrf_meta_tags %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <header class="clearfix">
-  <div class="wrapper">
-    <%= render :partial => "layouts/nav" %>
-  </div>
-  </header>
-  <div class="wrapper">
-      <% flash.each do |name, msg| %>
+<body> 
+  <%= render :partial => "layouts/nav" %>
+   <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
-    <%= yield %>
+  <div class="container">
+    <div class="content">
+       <%= yield %>
+    </div>
   </div>
 </body>
 </html>
