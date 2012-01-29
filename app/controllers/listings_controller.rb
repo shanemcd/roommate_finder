@@ -6,9 +6,9 @@ class ListingsController < ApplicationController
 
   def index
     if params[:search].present?
-      @listings = Listing.near(params[:search], params[:distance] , {:order => :distance, :units => params[:unit]})
+      @listings = Listing.near(params[:search], params[:distance] , {:order => :distance, :units => params[:unit]}).page(params[:page]).per_page(5)
     else
-      @listings = Listing.paginate(:page => params[:page], :per_page => 5)
+      @listings = Listing.page(params[:page]).per_page(5)
   end
   end
 
