@@ -3,15 +3,16 @@ class Listing < ActiveRecord::Base
 
   belongs_to :user
 
+  has_many :listing_images, :dependent => :destroy
+  validates_presence_of :listing_images
+  accepts_nested_attributes_for :listing_images
+
   validates :name, :presence => true,
             :length => { :maximum => 50 }
 
   validates :address, :presence => true,
             :length => { :maximum => 100 }
   
-  has_many :listing_images, :dependent => :destroy
-  accepts_nested_attributes_for :listing_images
-
   geocoded_by :address
   after_validation :geocode
 
@@ -23,111 +24,66 @@ class Listing < ActiveRecord::Base
   end
   after_validation :reverse_geocode
 
-  #Embarrassing... Changing this soon.
-  def shortenState
-    case self.state
-    when /alabama/i 
-      self.state = "AL"
-    when /alaska/i
-      self.state = "AK"
-    when /arkansas/i
-      self.state = "AR"
-    when /california/i
-      self.state = "CA"
-    when /colorado/i
-      self.state = "CO"
-    when /connecticut/i
-      self.state = "CT"
-    when /delaware/i
-      self.state = "DE"
-    when /DC/i
-      self.state = "DC"
-    when /florida/i
-      self.state = "FL"
-    when /georgia/i
-      self.state = "GA"
-    when /hawaii/i
-      self.state = "HI"
-    when /idago/i
-      self.state = "ID"
-    when /illinois/i
-      self.state = "IL"
-    when /indiana/i
-      self.state = "IN"
-    when /iowa/i
-      self.state = "IA"
-    when /kansas/i
-      self.state = "KS"
-    when /kentucky/i
-      self.state = "KY"
-    when /louisiana/i
-      self.state = "LA"
-    when /maine/i
-      self.state = "ME"
-    when /maryland/i
-      self.state = "MD"
-    when /massachusetts/i
-      self.state = "MA"
-    when /michigan/i
-      self.state = "MI"
-    when /minnesota/i
-      self.state = "MN"
-    when /mississippi/i
-      self.state = "MS"
-    when /missouri/i
-      self.state = "MO"
-    when /montana/i
-      self.state = "MT"
-    when /nebraska/i
-      self.state = "NE"
-    when /nevada/i
-      self.state = "NV"
-    when /new hampshire/i
-      self.state = "NH"
-    when /new jersey/i
-      self.state = "NJ"
-    when /new mexico/i
-      self.state = "NM"
-    when /new york/i
-      self.state = "NY"
-    when /north carolina/i
-      self.state = "NC"
-    when /north dakota/i
-      self.state = "ND"
-    when /ohio/i
-      self.state = "OH"
-    when /oklahoma/i
-      self.state = "OK"
-    when /oregon/i
-      self.state = "OR"
-    when /pennsylvania/i
-      self.state = "PA"
-    when /rhode island/i
-      self.state = "RI"
-    when /south carolina/i
-      self.state = "SC"
-    when /south dakota/i
-      self.state = "S"
-    when /tennessee/i
-      self.state = "TN"
-    when /texas/i
-      self.state = "TX"
-    when /utah/i
-      self.state = "UT"
-    when /vermont/i
-      self.state = "VT"
-    when /virginia/i
-      self.state = "VA"
-    when /washington/i
-      self.state = "WA"
-    when /west virginia/i
-      self.state = "WV"
-    when /wisconsin/i
-      self.state = "WI"
-    when /wyoming/i
-      self.state = "WY"
+  def shorten_state
+    states = {
+    "Alabama" => "AL",
+    "Alaska" => "AK",
+    "Arkansas" => "AR",
+    "California" => "CA",
+    "Colorado" => "CO",
+    "Connecticut" => "CT",
+    "Deleware" => "DE",
+    "District of Columbia" => "DC",
+    "Florida" => "FL",
+    "Georgia" => "GA",
+    "Hawaii" => "HI",
+    "Idaho" => "ID",
+    "Illinois" => "IL",
+    "Indiana" => "IN",
+    "Iowa" => "IA",
+    "Kansas" => "KS",
+    "Kentucky" => "KY",
+    "Louisiana" => "LA",
+    "Maine" => "ME",
+    "Maryland" => "MD",
+    "Massachusetts" => "MA",
+    "Michigan" => "MI",
+    "Minnesota" => "MN",
+    "Mississippi" => "MS",
+    "Missouri" => "MO",
+    "Montana" => "MT",
+    "Nebraska" => "NE",
+    "Nevada" => "NV",
+    "New Hampshire" => "NH",
+    "New Jersey" => "NJ",
+    "New Mexico" => "NM",
+    "New York" => "NY",
+    "North Carolina" => "NC",
+    "North Dakota" => "ND",
+    "Ohio" => "OH",
+    "Oklahoma" => "OK",
+    "Oregon" => "OR",
+    "Pennsylvania" => "PA",
+    "Rhode Island" => "RI",
+    "South Carolina" => "SC",
+    "South Dakota" => "SD",
+    "Tennessee" => "TN",
+    "Texas" => "TX",
+    "Utah" => "UT",
+    "Vermont" => "VT",
+    "Virginia" => "VA",
+    "Washington" => "WA",
+    "West Virginia" => "WV",
+    "Wisconsin" => "WI",
+    "Wyoming" => "WY"
+    }
+    if states.has_key?(self.state)
+      self.state = states[self.state]
+    else
+      return self.state
     end
   end
 
-  before_save :shortenState
+  before_save :shorten_state
+
 end

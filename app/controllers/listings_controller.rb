@@ -42,7 +42,6 @@ class ListingsController < ApplicationController
   end
 
   def update
-    # raise :params
     @listing = Listing.find(params[:id])
     if @listing.update_attributes!(params[:listing])
       flash[:notice] = "Successfully updated listing."
@@ -50,7 +49,7 @@ class ListingsController < ApplicationController
     else
       render :action => 'edit'
     end
-    rescue Exception => e
+    rescue Exception => e #rescue the right exception, when you remember what it was
     flash[:error] = e.message
     redirect_to edit_listing_path(@listing)
   end
