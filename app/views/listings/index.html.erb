@@ -8,6 +8,7 @@
     <%= submit_tag "Search Near", :name => nil %>
   </p>
 <% end %>
+
 <ul id="listings_list">
   <% for listing in @listings %>
   <li id="listing" class="clearfix">
@@ -19,6 +20,12 @@
       <% end %>
    </div>
   </li>
-
   <% end %>
 </ul>
+
+<div class="digg_pagination">
+  <div clas="page_info">
+    <%= page_entries_info @posts %>
+  </div>
+  <%= will_paginate @posts, :container => false %>
+</div>

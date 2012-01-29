@@ -8,7 +8,7 @@ class ListingsController < ApplicationController
     if params[:search].present?
       @listings = Listing.near(params[:search], params[:distance] , {:order => :distance, :units => params[:unit]})
     else
-      @listings = Listing.all
+      @listings = Listing.paginate(:page => params[:page], :per_page => 5)
   end
   end
 

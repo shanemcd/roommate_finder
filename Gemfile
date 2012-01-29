@@ -14,7 +14,7 @@ gem 'cancan'
 gem 'paperclip'
 gem 'jquery-rails'
 gem "geocoder"
-
+gem 'will_paginate'
 
 # Gems used only for assets and not required
 # in production environments by default.
