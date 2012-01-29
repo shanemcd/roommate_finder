@@ -4,7 +4,7 @@ class Listing < ActiveRecord::Base
   belongs_to :user
 
   has_many :listing_images, :dependent => :destroy
-  validates_presence_of :listing_images
+  validates_presence_of :listing_images, :message => "Please upload at least one image"
   accepts_nested_attributes_for :listing_images
 
   validates :name, :presence => true,

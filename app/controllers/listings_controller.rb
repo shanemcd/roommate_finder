@@ -18,7 +18,7 @@ class ListingsController < ApplicationController
     end
     @listing = Listing.new
     3.times { @listing.listing_images.build }
-    authorize! :read, @listing
+    # authorize! :read, @listing
   end
 
   def create
@@ -27,7 +27,8 @@ class ListingsController < ApplicationController
       flash[:notice] = "Successfully created listing."
       redirect_to @listing
     else
-      render :action => 'new'
+      redirect_to new_listing_path
+      flash[:error] = "Please fill out everything and upload and image."
     end
   end
 
