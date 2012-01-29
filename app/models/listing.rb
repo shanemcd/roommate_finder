@@ -24,6 +24,10 @@ class Listing < ActiveRecord::Base
   end
   after_validation :reverse_geocode
 
+  def to_param
+    "#{id} #{name}".parameterize
+  end
+
   def shorten_state
     states = {
     "Alabama" => "AL",
