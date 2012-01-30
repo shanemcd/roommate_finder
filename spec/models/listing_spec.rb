@@ -2,10 +2,13 @@ require 'spec_helper'
 
 describe User do
 
+  ## I need to figure out how to simulate an image attachment
   before(:each) do  
     @attr = { 
       :name => "Test Listing", 
-      :address => "2008 Cedar Grove Rd Winchester VA"
+      :address => "2008 Cedar Grove Rd Winchester VA",
+      :latitude => 32.7153292, 
+      :longitude => -117.1572551
     }
   end  
 
@@ -18,5 +21,6 @@ describe User do
     no_address_listing.should_not be_valid
   end
 
+  
   
 end
