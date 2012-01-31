@@ -32,7 +32,7 @@
   <% else %>
   <%= image_tag "https://api.twitter.com/1/users/profile_image?user_id=#{@listing.user.uid}&size=original" %>
   <% end %><br />
-  <%= @listing.user.name %>
+  <%= link_to @listing.user.name, @listing.user %>
 </div>
 
 <section id="listinginfo" class="clearfix">
