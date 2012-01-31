@@ -12,9 +12,11 @@
 <ul id="listings_list">
   <% for listing in @listings %>
   <li id="listing" class="clearfix">
-   <%= image_tag listing.listing_images.first.photo.url(:thumb) %>  
-   <div id="listingtitle"><h3><%= link_to listing.name, listing %></h3>
-   <p><%= "#{listing.city}, #{listing.state}" %><p>
+    <% if listing.listing_images.exists? %>
+    <%= image_tag listing.listing_images.first.photo.url(:thumb) %>  
+    <% end %>
+    <div id="listingtitle"><h3><%= link_to listing.name, listing %></h3>
+    <p><%= "#{listing.city}, #{listing.state}" %><p>
       <% if can? :destroy, listing %>
         <%= link_to "destroy", listing, :method => :delete %>
       <% end %>
