@@ -3,15 +3,21 @@ require 'spec_helper'
 describe ListingsController do
   render_views
 
-  describe "GET 'home'" do
+  describe "GET 'listing'" do
     it "should be successful" do
-      get 'home'
+      get 'index'
       response.should be_success
     end
     
     it "should have the right title" do
-        get 'home'
-        response.should have_selector("title", :content => "Ruby on Rails Tutorial Sample App | Home")
+        get 'index'
+        response.should have_selector("title", :content => "RoomFinder")
+    end
+  end
+
+  describe "GET 'edit'" do
+
+    it "should get the edit page for a listing" do
     end
   end
 end
