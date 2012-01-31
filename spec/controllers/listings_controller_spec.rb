@@ -18,6 +18,7 @@ describe ListingsController do
   describe "GET 'edit'" do
 
     it "should get the edit page for a listing" do
+      
     end
   end
 end
