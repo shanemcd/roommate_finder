@@ -30,4 +30,15 @@ describe ListingsController do
       get :edit, :id => @listing
     end
   end
+
+  describe "DELETE 'destroy'" do
+
+    before(:each) do  
+      @listing = Factory(:listing)
+    end 
+
+    it "should delete the listing" do
+      delete :destroy, :id => @listing
+    end
+  end
 end
