@@ -1,7 +1,11 @@
-<%= user_avatar %>
-<h2><%= @user.name %></h2>
-
   <div id="container">
+  <div id="user_sidebar">
+    <%= user_avatar %>
+    <h2><%= @user.name %></h2>
+  </div>
+  <div id="user_info">
+  <h3>About <%= @user.name %><h3>
+  </div>
   <ul>
     <% @listings.each do |listing| %>
      <li><%= link_to listing.name, listing %></li>

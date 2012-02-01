@@ -1,3 +1,23 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#user_sidebar{
+  float: left;
+  padding: 20px;
+  background-color: rgba(0,0,0,.08);
+  border-radius: 5px;
+}
+
+#user_sidebar h2{
+  position: relative;
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#user_info{
+  clear: both;
+  padding-top: 50px;
+}

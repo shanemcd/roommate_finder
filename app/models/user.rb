@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :listings
+  has_one :profile
 
   validates :name, :presence => true,
             :length => { :maximum => 50 }
@@ -18,6 +19,7 @@ class User < ActiveRecord::Base
       user.name = auth["info"]["name"]
       user.location = auth["info"]["location"]
       user.image = auth["info"]["image"]
+      user.profile = Profile.create
     end
   end
 end

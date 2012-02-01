@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <%= javascript_include_tag :application %>
+  <%= stylesheet_link_tag "bootstrap", :media => "all" %>
+  <%= stylesheet_link_tag "users", :media => "all" %>
+  <%= stylesheet_link_tag "styles", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body> 
+  <%= render :partial => "layouts/nav" %>
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <div class="content">
+       <%= yield %>
+    </div>
+  </div>
+</body>
+</html>
