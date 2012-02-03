@@ -4,7 +4,16 @@
     <%= u.text_field :name %>
   </p>
 
+  <p>
   <%= u.label :email %>
-    <%= u.text_field :email %>
+  <%= u.text_field :email %>
+  </p>
+
+  <p>
+  <%= u.fields_for :profile do |p| %>
+    <%= p.label :about %>
+    <%= p.text_area :about %>
+  <% end %>
+  </p>
   <p><%= u.submit "Submit" %></p>
 <% end %>

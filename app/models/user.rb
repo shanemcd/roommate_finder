@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   validates_uniqueness_of :email, :case_sensitive => false
 
+  accepts_nested_attributes_for :profile
+
 
   def self.from_omniauth(auth)
     find_by_provider_and_uid(auth["provider"], auth["uid"]) || create_with_omniauth(auth)
