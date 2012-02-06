@@ -7,6 +7,7 @@ class Ability
     can :create, Listing
     can :manage, Listing, :user_id => current_user.id
     can :manage, User, :user_id => current_user.id
+    can :manage, Profile, :user_id => current_user.id
   end
 
 end

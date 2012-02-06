@@ -6,7 +6,9 @@
   <div id="user_info">
   <h3>About <%= @user.name %><h3>
   </div>
-  <%= @user.profile.about %>
+  <div id="user_about">
+    <p><%= simple_format h(@user.profile.about) %></p>
+  </div>
   <ul>
     <% @listings.each do |listing| %>
      <li><%= link_to listing.name, listing %></li>
