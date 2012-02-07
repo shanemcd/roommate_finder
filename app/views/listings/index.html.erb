@@ -9,25 +9,32 @@
   </p>
 <% end %>
 
-<ul id="listings_list">
-  <% for listing in @listings %>
-  <li id="listing" class="clearfix">
-    <% if listing.listing_images.exists? %>
-    <%= image_tag listing.listing_images.first.photo.url(:thumb) %>  
-    <% end %>
-    <div id="listingtitle"><h3><%= link_to listing.name, listing %></h3>
-    <p><%= "#{listing.city}, #{listing.state}" %><p>
-      <% if can? :destroy, listing %>
-        <%= link_to "destroy", listing, :method => :delete %>
+<div id="listings">
+  <ul id="listings_list">
+    <% for listing in @listings %>
+    <li id="listing" class="clearfix">
+      <% if listing.listing_images.exists? %>
+      <%= image_tag listing.listing_images.first.photo.url(:thumb) %>  
       <% end %>
-   </div>
-  </li>
-  <% end %>
-</ul>
+      <div id="listingtitle"><h3><%= link_to listing.name, listing %></h3>
+      <p><%= "#{listing.city}, #{listing.state}" %><p>
+        <% if can? :destroy, listing %>
+          <%= link_to "destroy", listing, :method => :delete %>
+        <% end %>
+     </div>
+    </li>
+    <% end %>
+  </ul>
 
-<div class="digg_pagination">
-  <div clas="page_info">
-    <%= page_entries_info @posts %>
+  <div class="digg_pagination">
+    <div clas="page_info">
+      <%= page_entries_info @posts %>
+    </div>
+    <%= will_paginate @posts, :container => false %>
   </div>
-  <%= will_paginate @posts, :container => false %>
+</div>
+
+<div id="listing_filter">
+  <h4>Property type</h4>
+  
 </div>

@@ -8,6 +8,9 @@
 select#distance { width: 50px; }
 select#unit { width: 70px; }
 
+#listings { float: left; }
+#listing_filter { float: right; }
+
 ul#listings_list { width: 600px; background-color: rgba(0,0,0,.04); list-style: none; border-radius: 5px; margin: 0; }
 
 ul#listings_list li { padding: 15px; border-top: 1px solid rgba(0,0,0,.3);}
