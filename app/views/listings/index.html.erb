@@ -36,5 +36,13 @@
 
 <div id="listing_filter">
   <h4>Property type</h4>
-  
+  <%= form_tag listings_path, :method => :get do %>
+  <p>
+    <%= select_tag :property_type, options_for_select([["Apartment", :ap], ["cabin", "cabin"], ["House", :ho], ["Shared", :sh]], :mi) %>
+    <%= hidden_field_tag 'search', params[:search] %> 
+    <%# hidden_field :distance, params[:distance] %> 
+    <%# hidden_field :unit, :unit %> 
+    <%= submit_tag "Filter", :name => nil %>
+  </p>
+<% end %>
 </div>

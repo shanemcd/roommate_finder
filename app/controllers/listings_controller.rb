@@ -5,11 +5,17 @@ class ListingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    if params[:search].present?
+    if params[:search].present? && params[:property_type].present?
       @listings = Listing.near(params[:search], params[:distance] , {:order => :distance, :units => params[:unit]}).page(params[:page]).per_page(5)
+    elsif params[:property_type].present?
+      
+    sql = "SELECT * FROM listings WHERE property_type = '#{params[:property_type]}'"
+
+    @listings =  Listing.near(params[:search], params[:distance] , {:order => :distance, :units => params[:unit]}).paginate_by_sql(sql, :page => @page, :per_page => @per_page)
+      
     else
       @listings = Listing.page(params[:page]).per_page(7)
-  end
+    end
   end
 
   def new
@@ -60,5 +66,4 @@ class ListingsController < ApplicationController
     flash[:notice] = "Successfully destroyed listing."
     redirect_to listings_path
   end
-
 end
