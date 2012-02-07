@@ -1,5 +1,5 @@
 class Listing < ActiveRecord::Base
-  attr_accessible :photo, :user_id, :name, :address, :latitude, :longitude, :state, :listing_images_attributes
+  attr_accessible :photo, :user_id, :name, :address, :latitude, :longitude, :state, :listing_images_attributes, :property_type
 
   belongs_to :user
 

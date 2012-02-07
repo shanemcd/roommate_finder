@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User do
+describe Listing do
 
   ## I need to figure out how to simulate an image attachment
   before(:each) do  
@@ -8,7 +8,8 @@ describe User do
       :name => "Test Listing", 
       :address => "2008 Cedar Grove Rd Winchester VA",
       :latitude => 32.7153292, 
-      :longitude => -117.1572551
+      :longitude => -117.1572551,
+      :property_type => "Apartment"
     }
   end  
 
@@ -21,6 +22,8 @@ describe User do
     no_address_listing.should_not be_valid
   end
 
-  
-  
+  it "should have a property type" do
+    listing = Listing.create!(@attr)
+    listing.property_type.should_not be_nil
+  end
 end
