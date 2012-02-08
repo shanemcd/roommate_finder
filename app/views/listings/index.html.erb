@@ -3,8 +3,8 @@
 <%= form_tag listings_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= select_tag :distance, options_for_select((10..100).step(10)) %>
-    <%= select_tag :unit, options_for_select([["miles", :mi], ["km", :km]], :mi) %>
+    <%# select_tag :distance, options_for_select((10..100).step(10)) %>
+    <%# select_tag :unit, options_for_select([["miles", :mi], ["km", :km]], :mi) %>
     <%= submit_tag "Search Near", :name => nil %>
   </p>
 <% end %>

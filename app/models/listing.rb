@@ -1,3 +1,4 @@
+
 class Listing < ActiveRecord::Base
   attr_accessible :photo, :user_id, :name, :address, :latitude, :longitude, :state, :listing_images_attributes, :property_type
 
@@ -11,6 +12,17 @@ class Listing < ActiveRecord::Base
 
   validates :address, :presence => true,
             :length => { :maximum => 100 }
+
+  searchable do
+    string :search_near
+     latlon(:location) { 
+       Sunspot::Util::Coordinates.new(listing.latitude, listing.longitude)
+     }
+  end
+
+  def search_near
+    listing.address
+  end
   
   geocoded_by :address
   after_validation :geocode
@@ -35,7 +47,7 @@ class Listing < ActiveRecord::Base
     "California" => "CA",
     "Colorado" => "CO",
     "Connecticut" => "CT",
-    "Deleware" => "DE",
+    "Delaware" => "DE",
     "District of Columbia" => "DC",
     "Florida" => "FL",
     "Georgia" => "GA",

@@ -15,6 +15,7 @@ gem 'paperclip'
 gem 'jquery-rails'
 gem "geocoder"
 gem 'will_paginate'
+gem 'sunspot_rails', '2.0.0.pre.111215'
 
 # Gems used only for assets and not required
 # in production environments by default.

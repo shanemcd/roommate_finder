@@ -5,17 +5,29 @@ class ListingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    if params[:search].present? && params[:property_type].present?
-      @listings = Listing.near(params[:search], params[:distance] , {:order => :distance, :units => params[:unit]}).page(params[:page]).per_page(5)
-    elsif params[:property_type].present?
+    # if params[:search].present? && params[:property_type].present?
+    #   @listings = Listing.near(params[:search], params[:distance] , {:order => :distance, :units => params[:unit]}).page(params[:page]).per_page(5)
+    # elsif params[:property_type].present?
       
-    sql = "SELECT * FROM listings WHERE property_type = '#{params[:property_type]}'"
+    # sql = "SELECT * FROM listings WHERE property_type = '#{params[:property_type]}'"
 
-    @listings =  Listing.near(params[:search], params[:distance] , {:order => :distance, :units => params[:unit]}).paginate_by_sql(sql, :page => @page, :per_page => @per_page)
+    # @listings =  Listing.near(params[:search], params[:distance] , {:order => :distance, :units => params[:unit]}).paginate_by_sql(sql, :page => @page, :per_page => @per_page)
       
-    else
-      @listings = Listing.page(params[:page]).per_page(7)
+    # else
+    #   @listings = Listing.page(params[:page]).per_page(7)
+    # end
+    @search = Sunspot.search(Listing) do
+      fulltext params[:search]
+
+      # The "*" pop off the elements of the array that 
+      # Geocoder.coordinates returns.
+      with(:location).near(*Geocoder.coordinates(params[:search_near]), 
+                           :precision => 6)
+
+      # NOTE: You could also use the in_radius method but only in the pre-release version:
+      # with(:location).in_radius(*Geocoder.coordinates(params[:search_near]), 100) if params[:search_near].present?
     end
+    @listings = @search.results
   end
 
   def new
