@@ -29,6 +29,7 @@ end
 group :development do
   gem "rspec-rails", "~> 2.7"
   gem "annotate"
+  gem 'sunspot_solr', '2.0.0.pre.111215'
 end
 
 group :test do

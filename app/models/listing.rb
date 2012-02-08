@@ -15,13 +15,11 @@ class Listing < ActiveRecord::Base
 
   searchable do
     string :search_near
-     latlon(:location) { 
-       Sunspot::Util::Coordinates.new(listing.latitude, listing.longitude)
-     }
+    latlon(:location) { Sunspot::Util::Coordinates.new(latitude, longitude) }
   end
 
   def search_near
-    listing.address
+    address
   end
   
   geocoded_by :address
